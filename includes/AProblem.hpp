@@ -3,7 +3,6 @@
 
 class AProblem {
 	public :
-		AProblem();
 		~AProblem();
 
 		virtual float	generate_candidate()	= 0;

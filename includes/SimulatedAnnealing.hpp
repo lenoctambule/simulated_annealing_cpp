@@ -11,11 +11,11 @@ class SimulatedAnnealing
         float               _t_decay_rate;
         float               _init_tmp;
         unsigned int         _l;
-        unsigned int         _init;	
+        unsigned int         _init;
         AProblem            &_pm;
         const unsigned int  _max_no_improv;
 
-        float               compute_start_params();
+        void                compute_start_params();
         float               temp_decay_schedule(unsigned int step);
         unsigned int        superposition_decay_schedule(unsigned int step);
         float               p(float post, float pre);

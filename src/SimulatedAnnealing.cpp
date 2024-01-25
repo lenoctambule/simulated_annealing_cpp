@@ -37,6 +37,21 @@ unsigned int        SimulatedAnnealing::superposition_decay_schedule(unsigned in
     return this->_l;
 }
 
+void                SimulatedAnnealing::compute_start_params()
+{
+    float   pre = 0;
+    float   post = 0;
+    float   sum_deltas = 0;
+
+    for (int i = 0; i < 100; i++)
+    {
+        pre = this->_pm.current_cost();
+        post = this->_pm.candidate_cost();
+        sum_deltas += (pre - post);
+    }
+    this->_init_tmp = -sum_deltas/log(100);
+}
+
 void                SimulatedAnnealing::simulate()
 {
     unsigned int	no_improv   = 0;
