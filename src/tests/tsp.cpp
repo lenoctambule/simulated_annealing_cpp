@@ -24,8 +24,7 @@ int	main()
 	TSProblem tsp(mat, 5);
 	SimulatedAnnealing annealing(tsp);
 	annealing.simulate();
-
-	std::cout << std::endl;
+	tsp.debug_state();
 	std::cout << "Cost : " << tsp.current_cost() << std::endl;
 
 }

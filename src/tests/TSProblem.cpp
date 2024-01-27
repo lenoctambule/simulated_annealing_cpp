@@ -13,21 +13,11 @@ TSProblem::TSProblem(double **adj_matrix, unsigned int size) :
         this->_state[i] = i;
     }
     srand(time(0));
-    debug_state(_state);
 }
 
-const unsigned int  *TSProblem::getState() const
+unsigned int  *TSProblem::getState() const
 {
     return this->_state;
-}
-
-void    TSProblem::debug_state(unsigned int *state) const
-{
-    std::cout << "Path :";
-	for (unsigned int i = 0; i < _size; i++)
-		std::cout << " " << state[i];
-    std::cout << " " << state[0];
-    std::cout << std::endl;
 }
 
 TSProblem::~TSProblem()
@@ -36,7 +26,7 @@ TSProblem::~TSProblem()
     delete[] _state_buffer;
 }
 
-double   TSProblem::state_cost(unsigned int *state)
+double   TSProblem::state_cost(unsigned int *state) const
 {
     double   ret = 0;
 
@@ -46,12 +36,12 @@ double   TSProblem::state_cost(unsigned int *state)
     return ret;
 }
 
-double   TSProblem::current_cost()
+double   TSProblem::current_cost() const
 {
     return this->state_cost(this->_state);
 }
 
-double   TSProblem::candidate_cost()
+double   TSProblem::candidate_cost() const
 {
     return this->state_cost(this->_state_buffer);
 }
@@ -82,4 +72,12 @@ void    TSProblem::validate_candidate()
 void    TSProblem::discard_candidate()
 {
     apply_transform(this->_state_buffer);
+}
+
+void	TSProblem::debug_state() const
+{
+	std::cout << "Current state :";
+	for (unsigned int i = 0; i < this->_size; i++)
+		std::cout << " " << this->_state[i];
+	std::cout << std::endl;
 }
