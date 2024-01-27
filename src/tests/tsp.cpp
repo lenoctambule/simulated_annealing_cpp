@@ -27,4 +27,7 @@ int	main()
 	tsp.debug_state();
 	std::cout << "Cost : " << tsp.current_cost() << std::endl;
 
+	for (int i = 0; i < 5; i++)
+		delete[] mat[i];
+	delete[] mat;
 }
