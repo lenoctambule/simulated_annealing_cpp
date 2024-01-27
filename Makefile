@@ -29,10 +29,10 @@ salesman: $(NAME) $(TEST_OBJS)
 	$(CC) $(FLAGS) $(INCLUDE) $(TEST_OBJS) -o salesman $(NAME)
 
 clean :
-	rm -rf ./obj 
+	rm -rf ./obj
 
 fclean : clean
-	rm -f salesman
+	rm -f salesman $(NAME)
 
 re : fclean all
 
