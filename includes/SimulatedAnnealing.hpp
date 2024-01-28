@@ -13,13 +13,13 @@ class SimulatedAnnealing
         unsigned int         _l;
         unsigned int         _init_l;
         AProblem            &_pm;
-        unsigned int		_max_no_improv;
+        unsigned int        _max_no_improv;
 
         void                compute_start_params();
         double              temp_decay_schedule(unsigned int step);
         unsigned int        superposition_decay_schedule(unsigned int step);
         double              p(double post, double pre);
-        bool               	roll(double p);
+        bool                roll(double p);
 
     public :
         SimulatedAnnealing(AProblem &pm);

@@ -74,10 +74,10 @@ void    TSProblem::discard_candidate()
     apply_transform(this->_state_buffer);
 }
 
-void	TSProblem::debug_state() const
+void    TSProblem::debug_state() const
 {
-	std::cout << "Current state :";
-	for (unsigned int i = 0; i < this->_size; i++)
-		std::cout << " " << this->_state[i];
-	std::cout << std::endl;
+    std::cout << "Current state :";
+    for (unsigned int i = 0; i < this->_size; i++)
+        std::cout << " " << this->_state[i];
+    std::cout << std::endl;
 }

@@ -9,11 +9,9 @@ SimulatedAnnealing::SimulatedAnnealing(AProblem &pm) :
 	srand(time(0));
 }
 
-SimulatedAnnealing::SimulatedAnnealing(SimulatedAnnealing const &a) :
-	_init_tmp(a._init_tmp),
-	_pm(a._pm),
-    _max_no_improv(a._max_no_improv)
+SimulatedAnnealing::SimulatedAnnealing(SimulatedAnnealing const &a) : _pm(a._pm)
 {
+    *this = a;
 }
 
 SimulatedAnnealing::~SimulatedAnnealing()
@@ -22,11 +20,15 @@ SimulatedAnnealing::~SimulatedAnnealing()
 
 SimulatedAnnealing  &SimulatedAnnealing::operator=(SimulatedAnnealing const &a)
 {
-    this->_init_tmp = a._init_tmp;
-    this->_pm       = a._pm;
-    this->_t        = a._t;
+	_t = a._t;
+    _t_decay_rate = a._t_decay_rate;
+    _init_tmp = a._init_tmp;
+    _l = a._l;
+    _init_l = a._init_l;
+	_pm = a._pm;
+    _max_no_improv = a._max_no_improv;
 
- return *this;
+    return *this;
 }
 
 double               SimulatedAnnealing::temp_decay_schedule(unsigned int step)
