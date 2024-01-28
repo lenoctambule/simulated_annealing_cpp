@@ -1,5 +1,5 @@
 #ifndef _TSP_
-# define _TSP
+# define _TSP_
 # include <AProblem.hpp>
 # include <cstddef>
 
