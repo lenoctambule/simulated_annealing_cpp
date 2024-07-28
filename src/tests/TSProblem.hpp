@@ -12,7 +12,7 @@ class TSProblem : public AProblem
         unsigned int    *_state;
         unsigned int    *_state_buffer;
 
-        double           state_cost(unsigned int *state) const;
+        double          state_cost(unsigned int *state) const;
         void            apply_transform(unsigned int *state);
 
     public :
