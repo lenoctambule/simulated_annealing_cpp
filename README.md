@@ -18,8 +18,3 @@ Create a class that inherits from AProblem and implement the following the metho
 - `current_cost` : which will return the cost of the system.
 - `validate_candidate` : which will transition definitely the system to it's generated neighbouring state.
 - `discard_candidate` : will cancel and not apply any transformations to the system.
-
-## To-be-done:
-
-- [ ] Find a problem-independent method to compute the temperature decay schedule.
-- [ ] Implement another test
