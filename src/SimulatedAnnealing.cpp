@@ -49,14 +49,15 @@ void                SimulatedAnnealing::compute_start_params()
     double   post = 0;
     double   sum_deltas = 0;
 
+    pre = this->_pm.current_cost();
     for (int i = 0; i < 100; i++)
     {
-        pre = this->_pm.current_cost();
         post = this->_pm.generate_candidate(this->_l);
         this->_pm.discard_candidate();
-        sum_deltas += (pre - post);
+        sum_deltas -= std::abs(pre - post);
     }
-    this->_init_tmp = (sum_deltas) / log(100);
+    sum_deltas /= 100;
+    this->_init_tmp = (sum_deltas) / log(0.9);
     this->_t = this->_init_tmp;
     this->_t_decay_rate = 0.001;
 }
